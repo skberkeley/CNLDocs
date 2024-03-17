@@ -7,7 +7,8 @@ The initial view of the ColumnSelectorComponent is identical to that of the Tabl
 ### Attributes
 - `label : str` - The label to paint onto this ColumnSelectorComponent
 - `num_columns : int` - The number of columns to be selected by the user
-- `emulated_columns : list[str]` - The names of the columns selected by the user
+- `table_name : str` - The name of the table selected by the user
+- `value : list[str]` - The names of the columns selected by the user
 - `expected_val_types : list[type]` - The expected types of the values contained in the selected columns
 
 ### Constructor
