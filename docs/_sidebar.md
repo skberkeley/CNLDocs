@@ -1,5 +1,6 @@
 * [Home](/)
 * [Tutorial](tutorial.md)
+* [CNL Examples](examples.md)
 * CNL Documentation
     * [Tool](documentation/tool.md)
     * [Component](documentation/components/component.md)
