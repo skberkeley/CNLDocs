@@ -18,15 +18,112 @@ In this section, we present some video tutorials which demonstrate how to create
 ## Create a `Tool`
 <iframe src="https://drive.google.com/file/d/1DnTb5myMITBLdGyTB7cTXEu13LtvseiJ/preview" width="640" height="480" allow="autoplay"></iframe>
 
+This is the state of the program after the above video (minus imports, which are necessary to actually run the code):
+
+```python
+def main():
+    tool = Tool('demo')
+
+    tool.run()
+
+if __name__ == '__main__':
+    main()
+```
+
 ## Create a `Stage` to compute the sum of two numbers
 ### Adding `Components` to a `Stage`
 <iframe src="https://drive.google.com/file/d/15WAqNLHYpuwjWDfz343a-CYuZMm7B8iA/preview" width="640" height="480" allow="autoplay"></iframe>
 
+This is the state of the program after the above video (minus imports, which are necessary to actually run the code):
+
+```python
+def main():
+    tool = Tool('demo')
+
+    def adder():
+        input1 = UserInputComponent(int, "Enter the first addend:")
+        input2 = UserInputComponent(int, "Enter the second addend:")
+
+    tool.add_stage("adder", adder)
+
+    tool.run()
+
+if __name__ == '__main__':
+    main()
+```
+
 ### Adding a `Processor` to a `Stage`
 <iframe src="https://drive.google.com/file/d/1EzIoq6IrDa33FqZ5e2VRkGysB9_k7hLC/preview" width="640" height="480" allow="autoplay"></iframe>
+
+This is the state of the program after the above video (minus imports, which are necessary to actually run the code):
+
+```python
+def main():
+    tool = Tool('demo')
+
+    def adder():
+        input1 = UserInputComponent(int, "Enter the first addend:")
+        input2 = UserInputComponent(int, "Enter the second addend:")
+
+        def add_inputs():
+            return input1 + input2
+        processor = LambdaProcessor(add_inputs, num_return_vals=1)
+
+    tool.add_stage("adder", adder)
+
+    tool.run()
+
+if __name__ == '__main__':
+    main()
+```
 
 ### Adding `Results` to a `Stage`
 <iframe src="https://drive.google.com/file/d/1CZDQPY7PAJzvvLuV3H5kdOv_ZOnyotDD/preview" width="640" height="480" allow="autoplay"></iframe>
 
+This is the state of the program after the above video (minus imports, which are necessary to actually run the code):
+
+```python
+def main():
+    tool = Tool('demo')
+
+    def adder():
+        input1 = UserInputComponent(int, "Enter the first addend:")
+        input2 = UserInputComponent(int, "Enter the second addend:")
+
+        def add_inputs():
+            return input1 + input2
+        processor = LambdaProcessor(add_inputs, num_return_vals=1)
+        result = processor.result
+        results.show_results([results.Result(result, "Result of addition")], "Results: ")
+
+    tool.add_stage("adder", adder)
+
+    tool.run()
+
+if __name__ == '__main__':
+    main()
+```
+
 ## Using `Table` and `Column` `Selectors`:
 <iframe src="https://drive.google.com/file/d/1gU9evV_nnoWAoqGfE5YE6fz3e2k3O4Ac/preview" width="640" height="480" allow="autoplay"></iframe>
+
+This is code for the stage added in the above video. Remember to add it to the relevant `Tool` you're working on.
+
+```python
+def table_iterator():
+    table = TableSelectorComponent("Pick a table")
+    col = ColumnSelectorComponent("Pick a column from the same table")
+
+    def iterate_over_table():
+        col_names = col.value
+        col_name = col_names[0]
+        values = []
+        for row in table:
+            value = row[col_name]
+            values.append(value)
+        return values
+    processor = LambdaProcessor(iterate_over_table, num_return_vals=1)
+    results.show_results([results.Result(processor.result, "Values in column: ")])
+```
+
+
