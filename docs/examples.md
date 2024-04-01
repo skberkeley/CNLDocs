@@ -6,10 +6,10 @@ Below are some example programs written in CNL. Each example can be utilized as 
 A `Stage` which allows users to delete a table from the database.
 
 ```python
-    """
-    Stage to allow users to delete a table from the database.
-    """
     def delete_table():
+        """
+        Stage to allow users to delete a table from the database.
+        """
         table = TableSelectorComponent(label="Select a table that you want to delete from the database.")
 
         def process_delete_table():
@@ -27,11 +27,11 @@ A `Stage` which allows users to delete a table from the database.
 A `Stage` which allows users to copy a table with a dropped column.
 
 ```python
-    """
-    Stage which allows users to select a table and associated column. A new table with the inputted name
-    will be created in the database as the selected table with the selected column dropped. 
-    """
     def drop_column():
+        """
+        Stage which allows users to select a table and associated column. A new table with the inputted name
+        will be created in the database as the selected table with the selected column dropped. 
+        """
         table = TableSelectorComponent(label="Select the table you want to filter")
         col = ColumnSelectorComponent(label="Select column to drop")
         table_name = UserInputComponent(str, label="Enter table name, entering a name that already exists will REWRITE the original table.")
@@ -69,7 +69,7 @@ A `Stage` to display various metrics from a column of data. Make sure to `import
         Stage to get various metrics of a column of data. To test, select a table in the database,
         select the column of interest, and select the metric of interest. If mean, median, or standard
         deviation are selected, the entries of the column must be castable to integers (otherwise 
-        the program will error). Demonstration on how to utilize Numpy in context of a CNL program.
+        the program will error). Demonstration on how to utilize Numpy in the context of a CNL program.
         """
         table = TableSelectorComponent(label="Select a table")
         col = ColumnSelectorComponent(label="Select the column that you want your metric on")
