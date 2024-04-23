@@ -43,7 +43,7 @@ A `Stage` which allows users to copy a table with a dropped column.
             for row in table:
                 if not columns:
                     columns = list(row.keys())[1:]
-                    columns.remove(col.emulated_columns[0])
+                    columns.remove(col.value[0])
                 new_row = [row[column].val for column in columns]
                 new_rows.append(new_row)
 
@@ -77,7 +77,7 @@ A `Stage` to display various metrics from a column of data. Make sure to `import
 
         def process_metrics():
             desired_metric = metric_selector.value
-            column_name = col.emulated_columns[0]
+            column_name = col.value[0]
             values = []
 
             for row in table:
@@ -122,13 +122,13 @@ A `Stage` which displays the results of a numerical filtering operation done on 
         def process_numerical_filter():
             var = relationship.value
             if var == "Greater than":
-                return [row for row in table if int(row[col.emulated_columns[0]].val) > boundary.value]
+                return [row for row in table if int(row[col.value[0]].val) > boundary.value]
             elif var == "Less than":
-                return [row for row in table if int(row[col.emulated_columns[0]].val) < boundary.value]
+                return [row for row in table if int(row[col.value[0]].val) < boundary.value]
             elif var == "Equal to":
-                return [row for row in table if int(row[col.emulated_columns[0]].val) == boundary.value]
+                return [row for row in table if int(row[col.value[0]].val) == boundary.value]
             else:
-                return [row for row in table if int(row[col.emulated_columns[0]].val) != boundary.value]
+                return [row for row in table if int(row[col.value[0]].val) != boundary.value]
 
         processor = LambdaProcessor(process_numerical_filter)
         results.show_results([results.Result(processor.result, "Filtered results:")])
@@ -158,7 +158,7 @@ A `Stage` which displays the results of a numerical filtering operation done on 
             for row in table:
                 if not columns:
                     columns = list(row.keys())[1:]
-                if int(row[col.emulated_columns[0]].val) > boundary.value:
+                if int(row[col.value[0]].val) > boundary.value:
                     row_values = []
                     for column in columns:
                         row_values.append(row[column].val)
@@ -193,8 +193,8 @@ A `Stage` which creates a new table as a result of an inner merge between two se
         table_name = UserInputComponent(str, label="Enter table name, entering a name that already exists will REWRITE the original table with newly merged table.")
 
         def process_inner_merge():
-            left_key = left_on.emulated_columns[0]
-            right_key = right_on.emulated_columns[0]
+            left_key = left_on.value[0]
+            right_key = right_on.value[0]
             left_cols = []
             right_cols = []
             left_merge_information = {}
@@ -244,8 +244,8 @@ More comprehensive `Stage` which performs merging with `Pandas`. Allows for inne
         table_name = UserInputComponent(str, label="Enter table name, entering a name that already exists will REWRITE the original table with newly merged table.")
 
         def process_pandas_merge():
-            left_key = left_on.emulated_columns[0]
-            right_key = right_on.emulated_columns[0]
+            left_key = left_on.value[0]
+            right_key = right_on.value[0]
             left_table_dict = {}
             right_table_dict = {}
             for row in left_table:
