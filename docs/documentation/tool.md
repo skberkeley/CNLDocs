@@ -8,6 +8,7 @@ A data processing tool
 - `url : str` - The URL at which this Tool's landing page is accessed
 - `web_app : WebApp` - The WebApp driver used to host this Tool
 - `file_dir : Pathlib.Path` - A path to the directory in which to store files uploaded to this Tool
+-  state : dict - A dictionary programmers can use to share state between Stages
 
 ### Constructor
 `Tool(tool_name: str, url: str = '', file_dir_path: str = '')`
