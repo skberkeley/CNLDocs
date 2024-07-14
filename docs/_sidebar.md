@@ -7,6 +7,7 @@
     * [Component](documentation/components/component.md)
         * [Column Selector Component](documentation/components/column_selector_component.md)
         * [File Upload Component](documentation/components/file_upload_component.md)
+        * [Selector Component](documentation/components/selector_component.md)
         * [Table Selector Component](documentation/components/table_selector_component.md)
         * [Text Component](documentation/components/text_component.md)
         * [User Input Component](documentation/components/user_input_component.md)
