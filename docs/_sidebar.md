@@ -3,6 +3,7 @@
 * [CNL Examples](examples.md)
 * CNL Documentation
     * [Tool](documentation/tool.md)
+    * [Tables](documentation/db_utils.md)
     * [Component](documentation/components/component.md)
         * [Column Selector Component](documentation/components/column_selector_component.md)
         * [File Upload Component](documentation/components/file_upload_component.md)
