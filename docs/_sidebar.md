@@ -11,5 +11,4 @@
         * [User Input Component](documentation/components/user_input_component.md)
     * [Processor](documentation/processor/processor.md)
         * [Lambda Processor](documentation/processor/lambda_processor.md)
-    * [db_utils](documentation/db_utils.md)
     * [results](documentation/results.md)
