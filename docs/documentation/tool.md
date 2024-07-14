@@ -3,12 +3,13 @@
 A data processing tool
 
 ### Attributes
-- `tool_name : str`
-- `stages : list[Stage]`
+- `tool_name : str` - The name of this `Tool`, can only contain alphanumeric characters or underscores
+- `stages : list[Stage]` - A list of the current `Stages` added to this `Tool`
 - `url : str` - The URL at which this Tool's landing page is accessed
 - `web_app : WebApp` - The WebApp driver used to host this Tool
 - `file_dir : Pathlib.Path` - A path to the directory in which to store files uploaded to this Tool
--  state : dict - A dictionary programmers can use to share state between Stages
+-  `state : dict` - A dictionary programmers can use to share state between Stages
+-  `tables : Tables` - A dictionary mapping table names to pandas `DataFrames` in order to save, overwrite, and delete tables in the database underlying each `Tool`.
 
 ### Constructor
 `Tool(tool_name: str, url: str = '', file_dir_path: str = '')`
