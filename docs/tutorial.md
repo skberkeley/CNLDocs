@@ -83,7 +83,7 @@ def adder():
 
     processor = LambdaProcessor(add_inputs, num_return_vals=1)
     result = processor.result
-    results.show_results([results.Result(result, "Result of addition")], "Results: ")
+    results.show_results(results.Result(result, "Result of addition"))
 
 tool.add_stage("adder", adder)
 
