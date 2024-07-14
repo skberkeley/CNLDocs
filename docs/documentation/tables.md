@@ -11,7 +11,7 @@ Each `Tool` automatically instantiates its own empty `Tables` attribute upon dec
 
 ### `Tables.get_table_names(only_user_tables: bool = True)`
 
-Returns the names of the tables in the tool. 
+Returns a list of the names of the tables in the tool. 
 
 - `only_user_tables : bool` - If True, only returns the names of user-created tables.
 
@@ -19,5 +19,5 @@ Returns the names of the tables in the tool.
 
 Returns a list of the column names of the passed table name. 
 
-- `table_name : str` - The name of the table from which to get the column names
-- `only_user_columns : bool` - If True, only includes user columns
+- `table_name : str` - The name of the table from which to get the column names.
+- `only_user_columns : bool` - If True, only includes user columns.
