@@ -8,14 +8,14 @@ The initial view of the ColumnSelectorComponent is identical to that of the Tabl
 - `label : str` - The label to paint onto this ColumnSelectorComponent
 - `num_columns : int` - The number of columns to be selected by the user
 - `table_name : str` - The name of the table selected by the user
-- `value : list[str]` - The names of the columns selected by the user
-- `expected_val_types : list[type]` - The expected types of the values contained in the selected columns
+-  `column_names : list[str]` - The names of the columns selected by the user
+- `value : pd.DataFrame` - A pandas DataFrame containing the table columns selected by the user
 
 ### Constructor
-`ColumnSelectorComponent(label: str = "", num_columns: int = 1, expected_val_types: Optional[list[type]] = None)`
+`ColumnSelectorComponent(label: str = "", num_columns: int = 1)`
 
 Defines a ColumnSelectorComponent with the given attributes to be shown on the user interface for this stage.
 
 - `label : str` - The label to paint onto this ColumnSelectorComponent
 - `num_columns : int` - The number of columns to be selected by the user
-- `expected_val_types : list[type]` - The expected types of the values contained in the selected columns
+
