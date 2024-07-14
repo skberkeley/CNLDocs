@@ -21,13 +21,9 @@ In this section, we present some video tutorials which demonstrate how to create
 This is the state of the program after the above video (minus imports, which are necessary to actually run the code):
 
 ```python
-def main():
-    tool = Tool('demo')
+tool = Tool('demo')
 
-    tool.run()
-
-if __name__ == '__main__':
-    main()
+tool.run()
 ```
 
 ## Create a `Stage` to compute the sum of two numbers
@@ -37,19 +33,15 @@ if __name__ == '__main__':
 This is the state of the program after the above video (minus imports, which are necessary to actually run the code):
 
 ```python
-def main():
-    tool = Tool('demo')
+tool = Tool('demo')
 
-    def adder():
-        input1 = UserInputComponent(int, "Enter the first addend:")
-        input2 = UserInputComponent(int, "Enter the second addend:")
+def adder():
+    input1 = UserInputComponent(int, "Enter the first addend:")
+    input2 = UserInputComponent(int, "Enter the second addend:")
 
-    tool.add_stage("adder", adder)
+tool.add_stage("adder", adder)
 
-    tool.run()
-
-if __name__ == '__main__':
-    main()
+tool.run()
 ```
 
 ### Adding a `Processor` to a `Stage`
@@ -58,23 +50,20 @@ if __name__ == '__main__':
 This is the state of the program after the above video (minus imports, which are necessary to actually run the code):
 
 ```python
-def main():
-    tool = Tool('demo')
+tool = Tool('demo')
 
-    def adder():
-        input1 = UserInputComponent(int, "Enter the first addend:")
-        input2 = UserInputComponent(int, "Enter the second addend:")
+def adder():
+    input1 = UserInputComponent(int, "Enter the first addend:")
+    input2 = UserInputComponent(int, "Enter the second addend:")
 
-        def add_inputs():
-            return input1 + input2
-        processor = LambdaProcessor(add_inputs, num_return_vals=1)
+    def add_inputs():
+        return input1 + input2
 
-    tool.add_stage("adder", adder)
+    processor = LambdaProcessor(add_inputs, num_return_vals=1)
 
-    tool.run()
+tool.add_stage("adder", adder)
 
-if __name__ == '__main__':
-    main()
+tool.run()
 ```
 
 ### Adding `Results` to a `Stage`
@@ -83,25 +72,22 @@ if __name__ == '__main__':
 This is the state of the program after the above video (minus imports, which are necessary to actually run the code):
 
 ```python
-def main():
-    tool = Tool('demo')
+tool = Tool('demo')
 
-    def adder():
-        input1 = UserInputComponent(int, "Enter the first addend:")
-        input2 = UserInputComponent(int, "Enter the second addend:")
+def adder():
+    input1 = UserInputComponent(int, "Enter the first addend:")
+    input2 = UserInputComponent(int, "Enter the second addend:")
 
-        def add_inputs():
-            return input1 + input2
-        processor = LambdaProcessor(add_inputs, num_return_vals=1)
-        result = processor.result
-        results.show_results([results.Result(result, "Result of addition")], "Results: ")
+    def add_inputs():
+        return input1 + input2
 
-    tool.add_stage("adder", adder)
+    processor = LambdaProcessor(add_inputs, num_return_vals=1)
+    result = processor.result
+    results.show_results([results.Result(result, "Result of addition")], "Results: ")
 
-    tool.run()
+tool.add_stage("adder", adder)
 
-if __name__ == '__main__':
-    main()
+tool.run()
 ```
 
 ## Using `Table` and `Column` `Selectors`:
@@ -113,17 +99,7 @@ This is code for the stage added in the above video. Remember to add it to the r
 def table_iterator():
     table = TableSelectorComponent("Pick a table")
     col = ColumnSelectorComponent("Pick a column from the same table")
-
-    def iterate_over_table():
-        col_names = col.value
-        col_name = col_names[0]
-        values = []
-        for row in table:
-            value = row[col_name]
-            values.append(value)
-        return values
-    processor = LambdaProcessor(iterate_over_table, num_return_vals=1)
-    results.show_results([results.Result(processor.result, "Values in column: ")])
+    results.show_results((table, "Selected table: "), (col, "Selected column:"))
 ```
 
 
