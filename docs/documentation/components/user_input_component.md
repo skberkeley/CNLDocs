@@ -1,10 +1,10 @@
 # User Input Component
 
-An input component which captures input typed by the user
+An input component which captures input typed by the user.
 
 ### Attributes
 - `label : str` - A label to prompt the user for input.
-- `value : str` - The value inputted by the user
+- `value : str` - The value inputted by the user.
 
 ### Constructor
 `UserInputComponent(expected_type: type, label: str = "")`
