@@ -1,8 +1,8 @@
 # Table Selector Component
 
-A component used to display all existing tables to the user and allow them to select one.
+A component used to display all existing tables to the user and allow them to select one. The previewed tables are the pandas `DataFrames` stored in the relevant `Tool.tables`.
 
-After user submission, TableSelectorComponents store the selected table as a pandas `DataFrame`.
+After user submission, TableSelectorComponents stores the selected table as a pandas `DataFrame`.
 
 ### Attributes
 - `label : str` - The label to paint onto this TableSelectorComponent.
