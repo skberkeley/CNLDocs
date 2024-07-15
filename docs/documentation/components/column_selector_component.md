@@ -2,7 +2,7 @@
 
 A component which allows one or more columns to be selected interactively from a given selected table.
 
-The initial view of the ColumnSelectorComponent is identical to that of the TableSelectorComponent. When the user selects a table from the previews, a request is made (defined in column_selector.js) which returns the full table, which the user then selects columns from. These selected columns are submitted when the stage's POST request is made. The selected columns are stored as a pandas `DataFrame`. 
+The initial view of the ColumnSelectorComponent is identical to that of the TableSelectorComponent. When the user selects a table from the previews, a request is made (defined in column_selector.js) which returns the full table, which the user then selects columns from. The previewed tables are the pandas `DataFrames` stored in the relevant `Tool.tables`. These selected columns are submitted when the stage's POST request is made. The selected columns are stored as a pandas `DataFrame`. 
 
 ### Attributes
 - `label : str` - The label to paint onto this ColumnSelectorComponent.
