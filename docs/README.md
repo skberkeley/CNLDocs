@@ -1,2 +1,2 @@
-# CNLDocs
-Programmer-facing documentation for CoolNewLanguage. Intended to be used by people programming in CNL.
+# HiLTDocs
+Programmer-facing documentation for HiLT. Intended to be used by people programming in HiLT.
