@@ -1,5 +1,5 @@
-# CNL Example Programs
-Below are some example programs written in CNL. Each example can be utilized as a `Stage` in a CNL program. If using external packages such as `numpy` or `pandas`, make sure to import them into the program before calling!
+# HiLT Example Programs
+Below are some example programs written in HiLT. Each example can be utilized as a `Stage` in a HiLT program. If using external packages such as `numpy` or `pandas`, make sure to import them into the program before calling!
 
 ## Table Dropper
 
