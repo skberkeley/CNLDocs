@@ -1,7 +1,7 @@
 * [Home](/)
 * [Tutorial](tutorial.md)
-* [CNL Examples](examples.md)
-* CNL Documentation
+* [HiLT Examples](examples.md)
+* HiLT Documentation
     * [Tool](documentation/tool.md)
     * [Tables](documentation/tables.md)
     * [Component](documentation/components/component.md)
