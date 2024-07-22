@@ -32,4 +32,6 @@ def table_viewer():
     table = TableSelectorComponent()
     results.show_results((table, "Selected table: "))
 
+tool.add_stage('table_viewer', table_viewer)
+
 ```
