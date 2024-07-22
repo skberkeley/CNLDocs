@@ -5,6 +5,7 @@
     * [Tool](documentation/tool/tool.md)
         * [Tool.add_stage](documentation/tool/add_stage.md)
         * [Tool.run](documentation/tool/run.md)
+        * [Tool.user_input_received](documentation/tool/user_input_received.md)
     * [Tables](documentation/tables.md)
     * [Component](documentation/components/component.md)
         * [Column Selector Component](documentation/components/column_selector_component.md)
