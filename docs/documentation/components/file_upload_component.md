@@ -21,3 +21,12 @@ Defines a FileUploadComponent with the given attributes to be shown on the user 
 - `expected_ext : str` - The expected extension for files uploaded to this Component.
 - `label : str` - The label with instructions for the user, displayed as part of this Component. Shows a default value if not provided.
 - `replace_existing : bool` - Whether files uploaded will replace previously uploaded files with the same name. Default True.
+
+### Example usage
+An example of how to use a FileUploadComponent to capture a file path.
+
+```python
+def file_upload():
+    file_path = FileUploadComponent(expected_ext = txt, "Input a text file")
+    results.show_results((file_path.value, "Uploaded file path: "))
+```
