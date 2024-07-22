@@ -2,7 +2,9 @@
 * [Tutorial](tutorial.md)
 * [HiLT Examples](examples.md)
 * HiLT Documentation
-    * [Tool](documentation/tool.md)
+    * [Tool](documentation/tool/tool.md)
+        * [Tool.add_stage](documentation/tool/add_stage.md)
+        * [Tool.run](documentation/tool/run.md)
     * [Tables](documentation/tables.md)
     * [Component](documentation/components/component.md)
         * [Column Selector Component](documentation/components/column_selector_component.md)
