@@ -19,3 +19,18 @@ Defines a ColumnSelectorComponent with the given attributes to be shown on the u
 - `label : str` - The label to paint onto this ColumnSelectorComponent.
 - `num_columns : int` - The number of columns to be selected by the user.
 
+### Example usage
+An example of viewing selected columns from tables already saved in `.tables`.
+
+```python
+def column_viewer():
+    """
+    Stage to select and view a column of a table. 
+    """
+    TextComponent("Select a table and then select a column:")
+    column_selector1 = ColumnSelectorComponent("Select a column:")
+    column_selector2 = ColumnSelectorComponent("Select another column:")
+    results.show_results((column_selector1, "Selected column: "), (column_selector2, "Selected column: "))
+
+tool.add_stage('column_viewer', column_viewer)
+```
