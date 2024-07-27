@@ -11,7 +11,7 @@ After user submission, TableSelectorComponents stores the selected table as a pa
 - `value : pd.DataFrame` - The table selected by the user stored as a pandas DataFrame.
 
 ### Constructor
-`TableSelectorComponent(label="", only_user_tables=True)`
+`TableSelectorComponent(label='', only_user_tables=True)`
 
 Defines a TableSelectorComponent with the given attributes to be shown on the user interface for this stage.
 
