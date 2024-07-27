@@ -8,7 +8,7 @@ An input component which captures input from a choice of radio buttons.
 - `value : str` - The value inputted by the user.
 
 ### Constructor
-`SelectorComponent(expected_type: type, options: list[str], label: str = "")`
+`SelectorComponent(expected_type, options, label="")`
 
 Defines a SelectorComponent to be shown in the user interface for this stage. Once user input is provided through the radio buttons, it is cast to `expected_type` and stored in the `value` attribute of this Component.
 
