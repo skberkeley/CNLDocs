@@ -22,7 +22,8 @@ An example of how to use a Selector Component.
 ```python
 def selector_component():
     input = SelectorComponent(str, options=["Option 1", "Option 2", "Option 3"], label="Pick your option")
-    results.show_results((input.value, "Selected option: "))
+    if tool.user_input_received():
+        results.show_results((input.value, "Selected option: "))
 
 tool.add_stage('selector_component', selector_component)
 ```
