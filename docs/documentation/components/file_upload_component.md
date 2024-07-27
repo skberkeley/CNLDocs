@@ -14,7 +14,7 @@ File Upload Component is rendered as the browser's default file input component.
 - `value : str` - The path to the uploaded file.
 
 ### Constructor
-`FileUploadComponent(expected_ext: str, label: str = '', replace_existing: bool = True)`
+`FileUploadComponent(expected_ext, label='', replace_existing=True)`
 
 Defines a FileUploadComponent with the given attributes to be shown on the user interface for this stage.
 
