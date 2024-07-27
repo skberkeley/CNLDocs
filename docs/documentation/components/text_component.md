@@ -6,7 +6,7 @@ A component used to render some text within the interface of a Stage. Doesn't ta
 - `text : str` - The text to display.
 
 ### Constructor
-`TextComponent(text: str)`
+`TextComponent(text)`
 
 Defines a TextComponent to be shown with the given text.
 
