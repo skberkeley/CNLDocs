@@ -25,12 +25,14 @@ An example of viewing selected columns from tables already saved in `.tables`.
 ```python
 def column_viewer():
     """
-    Stage to select and view a column of a table. 
+    Stage to select and view a column of a table.
     """
-    TextComponent("Select a table and then select a column:")
-    column_selector1 = ColumnSelectorComponent("Select a column:")
-    column_selector2 = ColumnSelectorComponent("Select another column:")
-    results.show_results((column_selector1, "Selected column: "), (column_selector2, "Selected column: "))
+    column_selector = ColumnSelectorComponent("Choose your column(s):")
+    if tool.user_input_received():
+        results.show_results((column_selector.num_columns, "Number of selected columns: "),
+                             (column_selector.table_name, "Table name of selected column(s): "),
+                             (" ".join(column_selector.column_names), "Column names of selected column(s): "),
+                             (column_selector.value, "Actual columns selected in the form of a DataFrame: "))
 
 tool.add_stage('column_viewer', column_viewer)
 ```
