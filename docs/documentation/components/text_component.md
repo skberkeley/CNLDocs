@@ -17,7 +17,7 @@ An example of how to use a TextComponent.
 
 ```python
 def text_component():
-    input = TextComponent("This will show up as a message to the user when they pick the text_component stage")
+    text = TextComponent("This will show up as a message to the user.")
 
 tool.add_stage('text_component', text_component)
 ```
