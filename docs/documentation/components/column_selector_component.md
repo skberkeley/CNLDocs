@@ -12,7 +12,7 @@ The initial view of the ColumnSelectorComponent is identical to that of the Tabl
 - `value : pd.DataFrame` - A pandas DataFrame containing the table columns selected by the user.
 
 ### Constructor
-`ColumnSelectorComponent(label: str = "", num_columns: int = 1)`
+`ColumnSelectorComponent(label="", num_columns=1)`
 
 Defines a ColumnSelectorComponent with the given attributes to be shown on the user interface for this stage.
 
