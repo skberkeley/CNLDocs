@@ -7,7 +7,7 @@ An input component which captures input typed by the user.
 - `value : str` - The value inputted by the user.
 
 ### Constructor
-`UserInputComponent(expected_type: type, label: str = "")`
+`UserInputComponent(expected_type, label="")`
 
 Defines a UserInputComponent to be shown in the user interface for this stage. Once user input is provided, it is cast to `expected_type` and stored in the `value` attribute of this Component.
 
