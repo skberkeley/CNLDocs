@@ -27,3 +27,12 @@ def selector_component():
 
 tool.add_stage('selector_component', selector_component)
 ```
+
+On the user interface, this stage will look like the image below. Here the user has already chosen the "Option 2" radio button.
+
+<img src="/docs/images/selector_1.png" alt="Selector component input">
+
+The `results` page will surface `input`'s stored option. Below is the `results` page that corresponds with the example stage above. 
+
+<img src="/docs/images/selector_2.png" alt="Selector component results">
+
