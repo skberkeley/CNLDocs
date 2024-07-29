@@ -25,3 +25,11 @@ def user_input():
 
 tool.add_stage('user_input', user_input)
 ```
+
+On the user interface, this stage will look like the image below. Here the user has inputted "Hello HiLT users!". 
+
+<img src="/docs/images/user_input_1.png" alt="User input component input">
+
+The `results` page will surface `input`'s stored file path. Below is the `results` page that corresponds with the example stage above. 
+
+<img src="/docs/images/user_input_2.png" alt="User input component results">
