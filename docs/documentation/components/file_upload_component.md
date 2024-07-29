@@ -40,5 +40,5 @@ On the user interface, this stage will look like the image below. Here the user 
 
 The `results` page will surface `file_path`'s stored file path. This relative path can be utilized in file reading functions such as `pandas.read_json` (if the code above was edited to accept files with the .json extension). Below is the `results` page that corresponds with the example stage above. 
 
-<img src="/docs/images/file_upload_2.png" alt="File upload component resutls">
+<img src="/docs/images/file_upload_2.png" alt="File upload component results">
 
