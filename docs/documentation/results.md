@@ -36,7 +36,7 @@ def create_table():
     tool.add_stage('create_table', create_table)
 ```
 
-Alternatively, the stage below demonstrates an alternative usage of `show_results` by creating individual results objects. Surfaces the same information as the program above.
+Alternatively, the stage below demonstrates an alternative usage of `show_results` by creating individual `Result` objects. Surfaces the same information as the program above.
 ```python
 def create_table():
         """
