@@ -31,6 +31,6 @@ def create_table():
         if tool.user_input_recieved():
             df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
             tool.tables[table_name.value] = df
-            results.show_results([results.Result(df, "Created table: "]))
+            results.show_results((df, "Created table: "))
 
     tool.add_stage('create_table', create_table)
