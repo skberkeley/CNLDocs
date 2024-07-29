@@ -21,3 +21,8 @@ def text_component():
 
 tool.add_stage('text_component', text_component)
 ```
+
+On the user interface, this stage will look like the image below. Since there are no `results` being surfaced, there is no corresponding `results` page. 
+
+<img src="/docs/images/text_component_1.png" alt="Text component">
+
