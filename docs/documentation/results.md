@@ -19,7 +19,7 @@ An object-based representation of a result, label pairing.
 - `label : str` - The label to display for this result.
 
 #### Example usage
-Below is an example stage that demonstrates how to use `results` to surface internal changes to state. Here, when the user selects the `create_table` stage, the results page will show the user the hard-coded DataFrame. 
+Below is an example stage that demonstrates how to use `results` to surface internal changes to state. Here, when the user selects the `create_table` stage, the results page will show the user the hard-coded DataFrame as well as the number 3 (to demonstrate how to surface multiple results). 
 
 ```python
 def create_table():
@@ -28,9 +28,26 @@ def create_table():
         """
         table_name = UserInputComponent(str, label="Enter table name: ")
 
-        if tool.user_input_recieved():
+        if tool.user_input_received():
             df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
             tool.tables[table_name.value] = df
-            results.show_results((df, "Created table: "))
+            results.show_results((df, "Created table: "), (3, "Second number"))
 
     tool.add_stage('create_table', create_table)
+```
+
+Alternatively, the stage below demonstrates an alternative usage of `show_results` by creating individual results objects. Surfaces the same information as the program above.
+```python
+def create_table():
+        """
+        Stage to allow users to save a hard-coded DataFrame to the tool's Tables with a user-inputted name. 
+        """
+        table_name = UserInputComponent(str, label="Enter table name: ")
+
+        if tool.user_input_received():
+            df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
+            tool.tables[table_name.value] = df
+            results.show_results(results.Result(df, "Created table: "), results.Result(3, "Second number"))
+
+    tool.add_stage('create_table', create_table)
+```
