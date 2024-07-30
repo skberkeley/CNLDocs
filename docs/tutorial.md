@@ -18,6 +18,8 @@ tool = Tool('demo')
 tool.run()
 ```
 
+Try running this program.  The output will include a link, which you can follow to see the UI you've built so far.
+
 ## Create a `Stage` to compute the sum of two numbers
 In this section, we'll walk through creating a `Stage` which computes the sum of two numbers input by the user.
 
@@ -38,7 +40,7 @@ tool.add_stage("adder", adder)
 tool.run()
 ```
 
-### Using `Components` to widgets to a `Stage`
+### Using `Components` to add widgets to a `Stage`
 To define the interface for a `Stage`, we use `Components`. `Components` are widgets that users can interact with to provide input or view output. `Components` should be instantiated *within* an SDF for a particular `Stage`. In this case, we use two `UserInputComponents` to prompt for and collect the two numbers we want to add from the user.
 
 Now, when you run the `Tool` and navigate to the "adder" `Stage`, you'll see two input boxes prompting you to enter the two numbers you want to add. However, clicking "Submit" won't do anything yet, since we haven't added any logic to the `Stage`.
@@ -56,11 +58,11 @@ tool.run()
 ```
 
 ### Adding logic to a `Stage`
-At this point, we'd like to reveal once of HiLT's key secrets: An SDF for a particular `Stage` is run __twice__. Once, to define its interface, and a second time to execute the logic within the SDF. This allows us to include logic which depends on user input within the same SDF.
+Now we get to reveal once of HiLT's key secrets: A Stage-Defining Function (SDF) for a particular `Stage` is run twice. The first time, HiLT runs the SDF to build the user interface and put all the widgets on the page.  The second time, `Tool.user_input_received()` returns true, and  HiLT runs the SDF to execute anything that should only happen after users have given input. This means that in the same SDF, we can both (1) add widgets and (2) add logic that depends on what users input to those widgets!
 
 To let HiLT know what part of the SDF depends on user input, we check whether the user has submitted their input using the `Tool.user_input_received` method. We can use this to wrap input-dependent code inside an if statement. In this case, we can only add the two numbers together once the user has submitted their input.
 
-Now, when we run this program, navigate to the "adder" `Stage`, and enter two numbers, the sum of the two numbers will be calculated behind the scenes. However, the user won't see the result yet, since we haven't added any `Results` to the `Stage`.
+Now, when we run this program, navigate to the "adder" `Stage`, and enter two numbers, the sum of the two numbers will be calculated will be calculated, although the user won't see it.
 
 ```python
 tool = Tool('demo')
