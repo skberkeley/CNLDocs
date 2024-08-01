@@ -71,42 +71,8 @@ A `Stage` to display various metrics from a column of data. Make sure to `import
         """
         Stage to get various metrics of a column of data. To test, select a table in the database,
         select the column of interest, and select the metric of interest. If mean, median, or standard
-        deviation are selected, the entries of the column must be castable to integers (otherwise 
-        the program will error). Demonstration on how to utilize Numpy in the context of a CNL program.
-        """
-        table = TableSelectorComponent(label="Select a table")
-        col = ColumnSelectorComponent(label="Select the column that you want your metric on")
-        metric_selector = SelectorComponent(str, options=["mean", "median", "mode", "standard deviation"], label="Select the metric you want to see! Mean, median, and standard deviation only work for numerical data.")
-
-        if tool.user_input_recieved():
-            desired_metric = metric_selector.value
-            metric = None
-
-            if desired_metric == "mean":
-                metric = round(np.mean(col.value), 3)
-            elif desired_metric == "median":
-                metric = round(np.median(col.value), 3)
-            elif desired_metric == "standard deviation":
-                metric = return round(np.std(col.value), 3)
-            else:
-                metric = mode(values)
-
-            results.show_results([results.Result(metric, "Desired metric:")])
-
-    tool.add_stage('metrics', metrics)
-```
-
-## Numerical Filter with New Table 
-
-A `Stage` which displays the results of a numerical filtering operation done on a column of choice and saves the new table to the database. Requires `numpy` and `statistics`. 
-
-```python
-    def metrics():
-        """
-        Stage to get various metrics of a column of data. To test, select a table in the database,
-        select the column of interest, and select the metric of interest. If mean, median, or standard
         deviation are selected, the entries of the column must be castable to integers (otherwise
-        the program will error). Demonstration on how to utilize Numpy in the context of a CNL program.
+        the program will error). Demonstration on how to utilize Numpy in the context of a HiLT program.
         """
         col = ColumnSelectorComponent(label="Select the column that you want your metric on")
         metric_selector = SelectorComponent(str, options=["mean", "median", "mode", "standard deviation"],
@@ -114,7 +80,6 @@ A `Stage` which displays the results of a numerical filtering operation done on 
 
         if tool.user_input_received():
             desired_metric = metric_selector.value
-
             if desired_metric == "mean":
                 metric = round(np.mean(col.value), 3)
             elif desired_metric == "median":
@@ -124,10 +89,47 @@ A `Stage` which displays the results of a numerical filtering operation done on 
             else:
                 metric = mode(col.value)
 
-            results.show_results((metric, f"Fetched {desired_metric}: "))
+    results.show_results((metric, f"Fetched {desired_metric}: "))
 
 
-    tool.add_stage('metrics', metrics)
+tool.add_stage('metrics', metrics)
+```
+
+## Numerical Filter with New Table 
+
+A `Stage` which displays the results of a numerical filtering operation done on a column of choice and saves the new table to the database. Requires `numpy` and `statistics`. 
+
+```python
+    def numerical_filter_new_table():
+        """
+        Stage to filter the rows of a selected table based on the numerical values in the selected column.
+        The selected column and boundary should both be numerical values. The Stage displays the results
+        as a new table and saves said table to the database under the inputted table_name.
+        """
+        table = TableSelectorComponent(label="Select the table you want to filter")
+        col = ColumnSelectorComponent(label="Select the numerical column to filter on")
+        relationship = SelectorComponent(str, options=["Greater than", "Less than", "Equal to"],
+                                     label="Select the relationship you want to filter on")
+        boundary = UserInputComponent(int,
+                                  label="Input the value you want to compare the values of your selected column to")
+        table_name = UserInputComponent(str,
+                                    label="Enter table name, entering a name that already exists will REWRITE the original table with newly merged table.")
+
+        if tool.user_input_received():
+
+            df = tool.tables[table.table_name]
+
+            if relationship.value == "Greater than":
+                filtered_df = df[df[col.column_names[0]] > boundary.value]
+            elif relationship.value == "Less than":
+                filtered_df = df[df[col.column_names[0]] < boundary.value]
+            else:
+                filtered_df = df[df[col.column_names[0]] == boundary.value]
+
+            tool.tables[table_name.value] = filtered_df
+            results.show_results((filtered_df, "Filtered Table"))
+
+    tool.add_stage('process_numerical_filter_new_table', numerical_filter_new_table)
 ```
 
 ## Merging two tables
