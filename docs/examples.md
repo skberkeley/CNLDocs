@@ -92,7 +92,7 @@ A `Stage` to display various metrics from a column of data. Make sure to `import
     results.show_results((metric, f"Fetched {desired_metric}: "))
 
 
-tool.add_stage('metrics', metrics)
+    tool.add_stage('metrics', metrics)
 ```
 
 ## Numerical Filter with New Table 
