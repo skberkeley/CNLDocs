@@ -1,6 +1,6 @@
-# `Tool`
+# `hilt.Tool`
 
-_class_ `Tool(tool_name, file_dir_path='')`
+_class_ `hilt.Tool(tool_name, file_dir_path='')`
 
 A `Tool` containing `Stage`s for doing data transformation work. Tabular data for a `Tool` is stored in its underlying database, which is accessible using the `Tool.tables` attribute. Non-tabular data, such as strings or numbers, can be shared between `Stage`s using `Tool.state`. More information about these attributes can be found below.
 

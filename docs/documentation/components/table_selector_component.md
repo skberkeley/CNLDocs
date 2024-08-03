@@ -1,4 +1,4 @@
-# Table Selector Component
+# `hilt.TableSelectorComponent`
 
 A component used to display all existing tables to the user and allow them to select one. The previewed tables are the pandas `DataFrames` stored in the relevant `Tool.tables`.
 
@@ -28,10 +28,10 @@ def table_viewer():
     all uploaded tables are viewable, and no hidden ones are.
     :return:
     """
-    table = TableSelectorComponent(label="Select a table: ")
+    table = hilt.TableSelectorComponent(label="Select a table: ")
     if tool.user_input_received():
         # table.table_name errors?
-        results.show_results((table.value, "Selected table: "))
+        hilt.results.show_results((table.value, "Selected table: "))
 
 tool.add_stage('table_viewer', table_viewer)
 

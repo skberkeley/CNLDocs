@@ -1,4 +1,4 @@
-# Text Component
+# `hilt.TextComponent`
 
 A component used to render some text within the interface of a Stage. Doesn't take user input.
 
@@ -17,7 +17,7 @@ An example of how to use a TextComponent.
 
 ```python
 def text_component():
-    text = TextComponent("This will show up as a message to the user.")
+    text = hilt.TextComponent("This will show up as a message to the user.")
 
 tool.add_stage('text_component', text_component)
 ```

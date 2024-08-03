@@ -1,6 +1,6 @@
-# Tool.add_stage
+# hilt.Tool.add_stage
 
-`Tool.add_stage(stage_name, stage_func)`
+`hilt.Tool.add_stage(stage_name, stage_func)`
 
 Uses the `stage_func` provided to define and add a `Stage`  with name `stage_name` to this `Tool`.
 

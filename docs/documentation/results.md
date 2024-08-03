@@ -1,14 +1,14 @@
-# results
+# `hilt.results`
 `results` is a module containing the `show_results` method and the `Result` class, which are used to display results to the user for a particular `Stage`.
 
-#### `show_results(results: list[Result], results_title: str = '') -> None`
+#### `hilt.show_results(results: list[Result], results_title: str = '') -> None`
 
 Shows the results for a particular Stage to the user. The desired values to be shown should be wrapped in Result objects.
 
 - `results : list[Result]` - The results to show to the user, passed as a list of Result objects.
 - `results_title : str` - The title to display above the results. Defaults to a generic title if not passed.
 
-#### `class Result`
+#### `class hilt.Result`
 An object-based representation of a result, label pairing.
 ##### Attributes
 - `label : str` - The label to display for this result.
@@ -26,12 +26,12 @@ def create_table():
         """
         Stage to allow users to save a hard-coded DataFrame to the tool's Tables with a user-inputted name. 
         """
-        table_name = UserInputComponent(str, label="Enter table name: ")
+        table_name = hilt.UserInputComponent(str, label="Enter table name: ")
 
         if tool.user_input_received():
             df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
             tool.tables[table_name.value] = df
-            results.show_results((df, "Created table: "), (3, "Second number"))
+            hilt.results.show_results((df, "Created table: "), (3, "Second number"))
 
     tool.add_stage('create_table', create_table)
 ```
@@ -42,12 +42,12 @@ def create_table():
         """
         Stage to allow users to save a hard-coded DataFrame to the tool's Tables with a user-inputted name. 
         """
-        table_name = UserInputComponent(str, label="Enter table name: ")
+        table_name = hilt.UserInputComponent(str, label="Enter table name: ")
 
         if tool.user_input_received():
             df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
             tool.tables[table_name.value] = df
-            results.show_results(results.Result(df, "Created table: "), results.Result(3, "Second number"))
+            hilt.results.show_results(hilt.results.Result(df, "Created table: "), hilt.results.Result(3, "Second number"))
 
     tool.add_stage('create_table', create_table)
 ```

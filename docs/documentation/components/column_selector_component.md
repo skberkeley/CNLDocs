@@ -1,4 +1,4 @@
-# Column Selector Component
+# `hilt.ColumnSelectorComponent`
 
 A component which allows one or more columns to be selected interactively from a given selected table.
 
@@ -27,9 +27,9 @@ def column_viewer():
     """
     Stage to select and view a column of a table.
     """
-    column_selector = ColumnSelectorComponent("Choose your column(s):")
+    column_selector = hilt.ColumnSelectorComponent("Choose your column(s):")
     if tool.user_input_received():
-        results.show_results((column_selector.num_columns, "Number of selected columns: "),
+        hilt.results.show_results((column_selector.num_columns, "Number of selected columns: "),
                              (column_selector.table_name, "Table name of selected column(s): "),
                              (" ".join(column_selector.column_names), "Column names of selected column(s): "),
                              (column_selector.value, "Actual columns selected in the form of a DataFrame: "))

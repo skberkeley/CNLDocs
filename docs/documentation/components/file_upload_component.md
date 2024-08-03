@@ -1,4 +1,4 @@
-# File Upload Component
+# `hilt.FileUploadComponent`
 
 A component used to accept user file uploads.
 
@@ -27,9 +27,9 @@ An example of how to use a FileUploadComponent to capture a file path.
 
 ```python
 def file_upload():
-    file_path = FileUploadComponent(expected_ext = "txt", label = "Input a text file")
+    file_path = hilt.FileUploadComponent(expected_ext = "txt", label = "Input a text file")
     if tool.user_input_received():
-        results.show_results((file_path.value, "Uploaded file path: "))
+        hilt.results.show_results((file_path.value, "Uploaded file path: "))
 
 tool.add_stage('file_upload', file_upload)
 ```

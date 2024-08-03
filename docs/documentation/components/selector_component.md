@@ -1,4 +1,4 @@
-# Selector Component
+# `hilt.SelectorComponent`
 
 An input component which captures input from a choice of radio buttons.
 
@@ -21,9 +21,9 @@ An example of how to use a Selector Component.
 
 ```python
 def selector_component():
-    input = SelectorComponent(str, options=["Option 1", "Option 2", "Option 3"], label="Pick your option")
+    choice = hilt.SelectorComponent(str, options=["Option 1", "Option 2", "Option 3"], label="Pick your option")
     if tool.user_input_received():
-        results.show_results((input.value, "Selected option: "))
+        hilt.results.show_results((choice.value, "Selected option: "))
 
 tool.add_stage('selector_component', selector_component)
 ```

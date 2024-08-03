@@ -1,6 +1,6 @@
-# Tables.get_columns_of_table
+# hilt.Tables.get_columns_of_table
 
-`Tables.get_columns_of_table(table_name, only_user_columns=True)`
+`hilt.Tables.get_columns_of_table(table_name, only_user_columns=True)`
 
 Returns a list of the column names of the specified table. 
 

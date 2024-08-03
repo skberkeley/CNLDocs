@@ -1,6 +1,6 @@
-# Tables.get_table_names
+# hilt.Tables.get_table_names
 
-`Tables.get_table_names(only_user_tables=True)`
+`hilt.Tables.get_table_names(only_user_tables=True)`
 
 Returns a list of the names of the tables in the database backing this `Tool`. 
 

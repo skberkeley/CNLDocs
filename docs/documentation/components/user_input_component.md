@@ -1,4 +1,4 @@
-# User Input Component
+# `hilt.UserInputComponent`
 
 An input component which captures input typed by the user.
 
@@ -19,9 +19,9 @@ An example of how to use a UserInputComponent.
 
 ```python
 def user_input():
-    input = UserInputComponent(str, "Input your string below: ")
+    input = hilt.UserInputComponent(str, "Input your string below: ")
     if tool.user_input_received():
-        results.show_results((input, "Inputted string: "))
+        hilt.results.show_results((input, "Inputted string: "))
 
 tool.add_stage('user_input', user_input)
 ```

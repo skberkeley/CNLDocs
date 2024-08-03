@@ -1,8 +1,8 @@
-# Tables
+# hilt.Tables
 
 A `Tables` instance is a view of the tables in the underlying database backing a particular `Tool`. Individual tables can be accessed using dictionary-like notation, with string table names as keys (i.e. `tool.tables['myTable']`). This notation is supported for getting tables, in which case a pandas DataFrame is returned, and for storing or updating tables in the underlying database, in which case a DataFrame is expected. Tables can be deleted using the `del` keyword.
 
-Each `Tool` creates its own  `Tables` instance upon declaration.
+Each `Tool` creates its own  `Tables` instance upon declaration, so you should never need to instiantiate a `Tables` object yourself.
 
 ### Some notes on ordering
 Due to the nature of how `Stages` are implemented, database changes made using a `Tables` instance are cached until after an SDF has finished running. As a result, the following ordering rules are used:
