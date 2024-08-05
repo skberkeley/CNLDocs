@@ -30,9 +30,16 @@ def table_viewer():
     """
     table = hilt.TableSelectorComponent(label="Select a table: ")
     if tool.user_input_received():
-        # table.table_name errors?
         hilt.results.show_results((table.value, "Selected table: "))
 
 tool.add_stage('table_viewer', table_viewer)
 
 ```
+
+On the user interface, this stage will look like the image below. Here the internal database already has two tables saved, `documentation` and `other table`. The user has selected `documentation`. Below is what the UI will look like while the user has selected the table.
+
+<img src="https://github.com/skberkeley/CNLDocs/blob/main/docs/images/table_selector_1.png?raw=true?" alt="Table selector component input"> </img>
+
+Below shows how `results` display tables from a TableSelectorComponent. 
+
+<img src="https://github.com/skberkeley/CNLDocs/blob/main/docs/images/table_selector_2.png?raw=true?" alt="Table upload component results"> </img>
