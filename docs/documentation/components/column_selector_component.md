@@ -47,4 +47,4 @@ Below is the UI after the user has selected "Confirm your column choices". Notic
 
 Below shows how each attribute of the ColumnSelectorComponent will be displayed through `results`. 
 
-<img src="https://github.com/skberkeley/CNLDocs/blob/main/docs/images/column_selector_3.png?raw=true?" alt="File upload component results"> </img>
+<img src="https://github.com/skberkeley/CNLDocs/blob/main/docs/images/column_selector_3.png?raw=true?" alt="Column selector component results"> </img>
