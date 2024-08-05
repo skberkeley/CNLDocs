@@ -36,3 +36,15 @@ def column_viewer():
 
 tool.add_stage('column_viewer', column_viewer)
 ```
+
+On the user interface, this stage will look like the image below. Here the internal database already has two tables saved, `documentation` and `other table`. The user has selected `documentation`. From `documentation` they only selected `col_1`. Below is what the UI will look like while the user has selected the table and is selecting columns.
+
+<img src="https://github.com/skberkeley/CNLDocs/blob/main/docs/images/column_selector_1.png?raw=true?" alt="Column selector component input"> </img>
+
+Below is the UI after the user has selected "Confirm your column choices". Notice that the selected columns will be displayed to the user.
+
+<img src="https://github.com/skberkeley/CNLDocs/blob/main/docs/images/column_selector_2.png?raw=true?" alt="Column selector component input"> </img>
+
+Below shows how each attribute of the ColumnSelectorComponent will be displayed through `results`. 
+
+<img src="https://github.com/skberkeley/CNLDocs/blob/main/docs/images/column_selector_3.png?raw=true?" alt="File upload component results"> </img>
