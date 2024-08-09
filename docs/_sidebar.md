@@ -17,3 +17,4 @@
         * [hilt.TextComponent](documentation/components/text_component.md)
         * [hilt.UserInputComponent](documentation/components/user_input_component.md)
     * [hilt.results](documentation/results.md)
+    * [hilt.approvals](documentation/approvals.md)
