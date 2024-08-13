@@ -5,7 +5,7 @@
 
 Shows the results for a particular Stage to the user. The desired values to be shown can be passed by themselves, in a tuple with a string label, or wrapped in a `Result` object.
 
-- `results : list[Result]` - The results to show to the user. Each result can be passed by itself, in a tuple with a string label, or wrapped in a `Result` object.
+- `results : Result | Tuple[Any, str] | Any` - The results to show to the user. Each result can be wrapped in a `Result` object, in a tuple with a string label, or passed by itself.
 - `results_title : str` - The title to display above the results. Defaults to a generic title if not passed.
 
 #### `class hilt.Result`
