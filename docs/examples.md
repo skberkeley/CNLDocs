@@ -85,7 +85,7 @@ def metrics():
         else:
             metric = mode(values)
 
-        hilt.results.show_results(hilt.results.Result(metric, "Desired metric:"))
+        hilt.results.show_results((metric, "Desired metric:"))
 ```
 
 ## Numerical Filter with New Table 
