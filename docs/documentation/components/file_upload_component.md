@@ -13,6 +13,7 @@ File Upload Component is rendered as the browser's default file input component.
 ### Attributes
 - `expected_ext : str` - The expected extension for files uploaded to this Component.
 - `label : str` - The label with instructions for the user, displayed as part of this Component.
+- `replace_existing : bool` - What to do if a file with the same name has been uploaded previously. If `True`, silently replaces the pre-existing file, otherwise raises a `ValueError`. Default `True`.
 - `value : str` - The path to the uploaded file.
 
 ### Example usage
