@@ -85,7 +85,7 @@ tool.run()
 ### Adding logic to a `Stage`
 Now we get to reveal once of HiLT's key secrets: A Stage-Defining Function (SDF) for a particular `Stage` is run twice. The first time, HiLT runs the SDF to build the user interface and put all the widgets on the page.  The second time, `Tool.user_input_received()` returns true, and  HiLT runs the SDF to execute anything that should only happen after users have given input. This means that in the same SDF, we can both (1) add widgets and (2) add logic that depends on what users input to those widgets!
 
-To let HiLT know what part of the SDF depends on user input, we check whether the user has submitted their input using the `Tool.user_input_received` method. We can use this to wrap input-dependent code inside an if statement. In this case, we can only add the two numbers together once the user has submitted their input.
+To let HiLT know what part of the SDF depends on user input, we check whether the user has submitted their input using the `Tool.user_input_received` method. We can use this to wrap input-dependent code inside an if statement. In this case, we can add the two numbers together once the user has submitted their input. It's important to note that `Components` can only be created before user input is received.
 
 Now, when we run this program, navigate to the "adder" `Stage`, and enter two numbers, we can calculate the sum of the two numbers, although the user won't see it. To access the user's inputs, we access each `UserInputComponent`'s `value` attribute. Every `Component` which captures user input has a `value` attribute we can use to access that input once user input ahs been received.
 
@@ -99,6 +99,7 @@ def adder():
     input1 = hilt.UserInputComponent(int, "Enter the first number to add:")
     input2 = hilt.UserInputComponent(int, "Enter the second number to add:")
 
+    # Components can only be created before user input is received
     if tool.user_input_received():
         # User input has been received, so now we can
         # add inputs by accessing each component's value attribute
@@ -133,6 +134,7 @@ def adder():
     input1 = hilt.UserInputComponent(int, "Enter the first number to add:")
     input2 = hilt.UserInputComponent(int, "Enter the second number to add:")
 
+    # Components can only be created before user input is received
     if tool.user_input_received():
         # User input has been received, so now we can
         # add inputs by accessing each component's value attribute
