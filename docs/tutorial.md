@@ -13,8 +13,10 @@ In this section, we walk through creating a `Tool` in HiLT.
 All HiLT programs start by creating a `Tool`. When creating a `Tool`, we provide it with a name. Once the `Tool` is created, we can run it using the `run` method. Typically, when you a `Tool` is run, its landing page will show links allowing users to navigate to the different `Stages` you've defined. However, since we haven't added any `Stages` yet, the landing page will be empty.
 
 ```python
+# Instantiate a new tool
 tool = hilt.Tool('demo')
 
+# Run the tool
 tool.run()
 ```
 
@@ -30,13 +32,17 @@ To define a `Stage`, we use a Stage-Defining Function (SDF). At a high level, we
 At this point, when we run the program, the `Tool`'s landing page will now show a link to the "adder" `Stage`. However, since we haven't yet defined the interface or any logic inside the SDF, clicking on the link will show an empty page with just a "Submit" button.
 
 ```python
+# Instantiate a new tool
 tool = hilt.Tool('demo')
 
+# Define an SDF
 def adder():
     pass
 
+# Add the SDF as a Stage to the Tool
 tool.add_stage("adder", adder)
 
+# Run the tool
 tool.run()
 ```
 
@@ -46,14 +52,19 @@ To define the interface for a `Stage`, we use `Components`. `Components` are wid
 Now, when you run the `Tool` and navigate to the "adder" `Stage`, you'll see two input boxes prompting you to enter the two numbers you want to add. However, clicking "Submit" won't do anything yet, since we haven't added any logic to the `Stage`.
 
 ```python
+# Instantiate a new tool
 tool = hilt.Tool('demo')
 
+# Define an SDF
 def adder():
+    # Create interface to collect two numbers from the user
     input1 = hilt.UserInputComponent(int, "Enter the first number to add:")
     input2 = hilt.UserInputComponent(int, "Enter the second number to add:")
 
+# Add the SDF as a Stage to the Tool
 tool.add_stage("adder", adder)
 
+# Run the tool
 tool.run()
 ```
 
@@ -65,19 +76,24 @@ To let HiLT know what part of the SDF depends on user input, we check whether th
 Now, when we run this program, navigate to the "adder" `Stage`, and enter two numbers, we can calculate the sum of the two numbers, although the user won't see it. To access the user's inputs, we access each `UserInputComponent`'s `value` attribute. Every `Component` which captures user input has a `value` attribute we can use to access that input once user input ahs been received.
 
 ```python
+# Instantiate a new tool
 tool = hilt.Tool('demo')
 
+# Define an SDF
 def adder():
-    input1 = hilt.UserInputComponent(int, "Enter the first addend:")
-    input2 = hilt.UserInputComponent(int, "Enter the second addend:")
+    # Create interface to collect two numbers from the user
+    input1 = hilt.UserInputComponent(int, "Enter the first number to add:")
+    input2 = hilt.UserInputComponent(int, "Enter the second number to add:")
 
     if tool.user_input_received():
         # User input has been received, so now we can
         # add inputs by accessing each component's value attribute
         result = input1.value + input2.value
 
+# Add the SDF as a Stage to the Tool
 tool.add_stage("adder", adder)
 
+# Run the tool
 tool.run()
 ```
 
@@ -87,20 +103,26 @@ Ideally, we'd like to show the user the sum of the two numbers they've inputted 
 Now, when you run this program and provide input to the "adder" `Stage`, you'll see the sum of the two numbers you've inputted.
 
 ```python
+# Instantiate a new tool
 tool = hilt.Tool('demo')
 
+# Define an SDF
 def adder():
-    input1 = hilt.UserInputComponent(int, "Enter the first addend:")
-    input2 = hilt.UserInputComponent(int, "Enter the second addend:")
+    # Create interface to collect two numbers from the user
+    input1 = hilt.UserInputComponent(int, "Enter the first number to add:")
+    input2 = hilt.UserInputComponent(int, "Enter the second number to add:")
 
     if tool.user_input_received():
         # User input has been received, so now we can
         # add inputs by accessing each component's value attribute
         result = input1.value + input2.value
+        # Use show_results to display the result to the user
         hilt.results.show_results((result, "The sum of the two numbers is:"))
 
+# Add the SDF as a Stage to the Tool
 tool.add_stage("adder", adder)
 
+# Run the tool
 tool.run()
 ```
 
@@ -115,12 +137,16 @@ At a high level, we can think of a `Tables` instance as a dictionary of tables, 
 tool = hilt.Tool('demo')
 
 def create_table():
+    # Use a TextComponent to show a message to the user
     hilt.TextComponent("Creating and displaying a table to approve")
 
     if tool.user_input_received():
+        # Create a DataFrame
         df = pd.DataFrame([["Oski", "Bear", 1000], ["Carol", "Christ", 2000]], columns=["First Name", "Last Name", "Age"])
+        # Add the DataFrame to the tool's tables with name "newTable"
         tool.tables["newTable"] = df
 
+        # Use show_results to display the table to the user
         hilt.results.show_results((tool.tables["newTable"], "Created table: "))
 
 tool.add_stage('create_table', create_table)
@@ -135,17 +161,24 @@ We can use the same notation as table creation to modify a table. In this case, 
 tool = hilt.Tool('demo')
 
 def modify_table():
+    # Use a TextComponent to show a message to the user
     hilt.TextComponent("Modifying a table")
 
     if tool.user_input_received():
         try: 
+            # Try to append to the table named "newTable"
+            # Get a df containing the table
             df = tool.tables["newTable"]
+            # Append a new row to the table
             df.append({"First Name": "Alice", "Last Name": "Wonderland", "Age": 3000})
+            # Update the table in the tool's tables
             tool.tables["newTable"] = df
         except KeyError:
+            # If the table doesn't exist, create it
             df = pd.DataFrame([["Oski", "Bear", 1000], ["Carol", "Christ", 2000]], columns=["First Name", "Last Name", "Age"])
             tool.tables["newTable"] = df
 
+        # Use show_results to display the table to the user
         hilt.results.show_results((tool.tables["newTable"], "Modified table: "))
 
 tool.add_stage('modify_table', modify_table)
@@ -160,15 +193,19 @@ We can use `del` notation used for normal dictionaries to delete tables as well.
 tool = hilt.Tool('demo')
 
 def modify_table():
+    # Use a TextComponent to show a message to the user
     hilt.TextComponent("Modifying a table")
 
     if tool.user_input_received():
         try: 
+            # Try to the delete the table named "newTable"
             del tool.tables["newTable"]
         except KeyError:
+            # If the table doesn't exist, create it
             df = pd.DataFrame([["Oski", "Bear", 1000], ["Carol", "Christ", 2000]], columns=["First Name", "Last Name", "Age"])
             tool.tables["newTable"] = df
 
+        # Use show_results to display whether the table exists to the user
         hilt.results.show_results(("newTable" in tool.tables, "newTable table exists: "))
 
 tool.add_stage('modify_table', modify_table)
@@ -188,10 +225,13 @@ def create_table():
     hilt.TextComponent("Creating and displaying a table to approve")
 
     if tool.user_input_received():
+        # Use a DataFrame to create a table
         df = pd.DataFrame([["Oski", "Bear", 1000], ["Carol", "Christ", 2000]], columns=["First Name", "Last Name", "Age"])
         tool.tables["newTable"] = df
 
+        # Use get_user_approvals to allow the user to inspect the table and approve or reject it
         hilt.approvals.get_user_approvals()
+        # Use show_results to display the approved version of the table to the user
         hilt.results.show_results((tool.tables["newTable"], "Created table: "))
 
 tool.add_stage('create_table', create_table)
