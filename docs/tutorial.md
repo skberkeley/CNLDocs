@@ -62,7 +62,7 @@ Now we get to reveal once of HiLT's key secrets: A Stage-Defining Function (SDF)
 
 To let HiLT know what part of the SDF depends on user input, we check whether the user has submitted their input using the `Tool.user_input_received` method. We can use this to wrap input-dependent code inside an if statement. In this case, we can only add the two numbers together once the user has submitted their input.
 
-Now, when we run this program, navigate to the "adder" `Stage`, and enter two numbers, the sum of the two numbers will be calculated will be calculated, although the user won't see it.
+Now, when we run this program, navigate to the "adder" `Stage`, and enter two numbers, we can calculate the sum of the two numbers, although the user won't see it. To access the user's inputs, we access each `UserInputComponent`'s `value` attribute. Every `Component` which captures user input has a `value` attribute we can use to access that input once user input ahs been received.
 
 ```python
 tool = hilt.Tool('demo')
@@ -72,7 +72,9 @@ def adder():
     input2 = hilt.UserInputComponent(int, "Enter the second addend:")
 
     if tool.user_input_received():
-        result = input1 + input2
+        # User input has been received, so now we can
+        # add inputs by accessing each component's value attribute
+        result = input1.value + input2.value
 
 tool.add_stage("adder", adder)
 
@@ -92,7 +94,9 @@ def adder():
     input2 = hilt.UserInputComponent(int, "Enter the second addend:")
 
     if tool.user_input_received():
-        result = input1 + input2
+        # User input has been received, so now we can
+        # add inputs by accessing each component's value attribute
+        result = input1.value + input2.value
         hilt.results.show_results((result, "The sum of the two numbers is:"))
 
 tool.add_stage("adder", adder)
