@@ -42,6 +42,13 @@ def adder():
 # Add the SDF as a Stage to the Tool
 tool.add_stage("adder", adder)
 
+# Define another SDF
+def subtractor():
+    pass
+
+# Add the SDF as a Stage to the Tool
+tool.add_stage("subtractor", subtractor)
+
 # Run the tool
 tool.run()
 ```
@@ -63,6 +70,13 @@ def adder():
 
 # Add the SDF as a Stage to the Tool
 tool.add_stage("adder", adder)
+
+# Define another SDF
+def subtractor():
+    pass
+
+# Add the SDF as a Stage to the Tool
+tool.add_stage("subtractor", subtractor)
 
 # Run the tool
 tool.run()
@@ -93,6 +107,13 @@ def adder():
 # Add the SDF as a Stage to the Tool
 tool.add_stage("adder", adder)
 
+# Define another SDF
+def subtractor():
+    pass
+
+# Add the SDF as a Stage to the Tool
+tool.add_stage("subtractor", subtractor)
+
 # Run the tool
 tool.run()
 ```
@@ -121,6 +142,13 @@ def adder():
 
 # Add the SDF as a Stage to the Tool
 tool.add_stage("adder", adder)
+
+# Define another SDF
+def subtractor():
+    pass
+
+# Add the SDF as a Stage to the Tool
+tool.add_stage("subtractor", subtractor)
 
 # Run the tool
 tool.run()
