@@ -183,6 +183,30 @@ tool.add_stage('create_table', create_table)
 
 tool.run()
 ```
+### Adding table using `read_csv`
+
+Besides adding a hardcoded DataFrame, `Tables` can be updated using slightly more complex methods. In this example, a table is added through a hard-coded file path and `pd.read_csv`. 
+
+```python
+tool = hilt.Tool('demo')
+
+def create_table_from_csv_path():
+    # Use a TextComponent to show a message to the user
+    hilt.TextComponent("Creating and displaying a table through referencing a file path")
+
+    if tool.user_input_received():
+        # Create a DataFrame through a hard-coded arbitrary directory path "directory/file.csv".  
+        df = pd.read_csv("directory/file.csv")
+        # Add the DataFrame to the tool's tables with name "newTable"
+        tool.tables["newTable"] = df
+
+        # Use show_results to display the table to the user
+        hilt.results.show_results((tool.tables["newTable"], "Created table: "))
+
+tool.add_stage('create_table', create_table)
+
+tool.run()
+```
 
 ### Modifying a table using the `Tables` API
 We can use the same notation as table creation to modify a table. In this case, we'll add a new row to the table we created in the previous example. Note how we handle the case where a table named "newTable" doesn't exist yet.
