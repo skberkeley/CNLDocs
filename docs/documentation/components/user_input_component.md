@@ -16,7 +16,7 @@ An example of how to use a UserInputComponent.
 def user_input():
     input = hilt.UserInputComponent(str, "Input your string below: ")
     if tool.user_input_received():
-        hilt.results.show_results((input, "Inputted string: "))
+        hilt.results.show_results((input.value, "Inputted string: "))
 
 tool.add_stage('user_input', user_input)
 ```
