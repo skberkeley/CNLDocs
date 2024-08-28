@@ -205,7 +205,7 @@ def create_table_from_csv_path():
         # Use show_results to display the table to the user
         hilt.results.show_results((tool.tables["newTable"], "Created table: "))
 
-tool.add_stage('create_table', create_table)
+tool.add_stage('create_table', create_table_from_csv_path)
 
 tool.run()
 ```
