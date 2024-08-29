@@ -45,6 +45,8 @@ tool.run()
 An example of using a FileUploadComponent to read and save a file using HiLT's `Tables`.
 
 ```python
+tool = hilt.Tool('demo')
+
 def create_table_from_csv_path():
     # Use a TextComponent to show a message to the user
     hilt.TextComponent("Creating and displaying a table through file upload")
@@ -61,6 +63,8 @@ def create_table_from_csv_path():
         hilt.results.show_results((tool.tables["newTable"], "Created table: "))
 
 tool.add_stage('create_table', create_table_from_csv_path)
+
+tool.run()
 ```
 
 ### Modifying a table using the `Tables` API
